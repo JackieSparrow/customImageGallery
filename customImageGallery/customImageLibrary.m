@@ -201,5 +201,146 @@ NSString *photoUrl;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+/*
+ 
+ #pragma mark - TextView delegate Method
+ 
+ -(void)textViewDidChange:(UITextView *)textView
+ {
+ 
+ [textView setAutocorrectionType:UITextAutocorrectionTypeNo];
+ UIFont *font=[UIFont fontWithName:fontName size:fontsize];
+ CGSize size = [_m_TextLabel.text sizeWithFont:font constrainedToSize:_m_TextLabel.frame.size
+ lineBreakMode:NSLineBreakByCharWrapping];
+ 
+ CGRect frame=_m_TextLabel.frame;
+ frame.size.height=_m_TextLabel.contentSize.height;
+ // _m_TextLabel.font=font;
+ NSLog(@"TextView height%f",size.height);
+ NSLog(@"image View height%f",_GifImagePreview.frame.size.height);
+ if(frame.size.height>_GifImagePreview.frame.size.height+20)
+ {
+ NSLog(@"1");
+ UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please decrease the font size or delete some text" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:Nil, nil];
+ _m_TextLabel.frame=CGRectMake(_m_TextLabel.frame.origin.x,_GifImagePreview.frame.origin.y, _m_TextLabel.frame.size.width,_GifImagePreview.frame.size.height);
+ isTure=TRUE;
+ [alert show];
+ [alert release];
+ }
+ else
+ {
+ CGSize size123 = [_m_TextLabel.text sizeWithFont:font constrainedToSize:_m_TextLabel.frame.size
+ lineBreakMode:NSLineBreakByCharWrapping]; // default mode
+ int numberOfLines = size123.height / font.lineHeight;
+ 
+ NSLog(@"Number of lines %d",numberOfLines);
+ 
+ if(numberOfLines>1)
+ {
+ NSLog(@"2");
+ _m_TextLabel.frame=CGRectMake(_m_TextLabel.frame.origin.x,frame.origin.y, frame.size.width,frame.size.height);
+ }
+ else
+ {
+ CGFloat width =  [textView.text sizeWithFont:textView.font].width;
+ 
+ UILabel *locationLabel=[[UILabel alloc]init];
+ locationLabel.frame = CGRectMake(textView.frame.origin.x, textView.frame.origin.y,width+20, textView.frame.size.height);
+ int a=_m_TextLabel.frame.origin.x-_GifImagePreview.frame.origin.x;
+ 
+ int b=locationLabel.frame.size.width+a;
+ 
+ 
+ NSLog(@"wsdasadasd%d",b);
+ // _GifImagePreview.frame.size.width);
+ if(b>_GifImagePreview.frame.size.width)
+ {
+ NSLog(@"3");
+ 
+ locationLabel.frame = CGRectMake(textView.frame.origin.x, textView.frame.origin.y,_GifImagePreview.frame.size.width-20, textView.frame.size.height);
+ 
+ textView.frame = locationLabel.frame;
+ //[locationLabel release];
+ 
+ textView.frame = locationLabel.frame;
+ // [locationLabel release];
+ }
+ else
+ {
+ 
+ locationLabel.frame = CGRectMake(textView.frame.origin.x, textView.frame.origin.y,width+25,40);
+ NSLog(@"4");
+ textView.frame = locationLabel.frame;
+ // [locationLabel release];
+ }
+ }
+ }
+ if(frame.size.width>_GifImagePreview.frame.size.width)
+ {
+ NSLog(@"5");
+ CGFloat widthCalData=_GifImagePreview.frame.size.width-_m_TextLabel.frame.origin.x;
+ CGFloat textViewwidth=_m_TextLabel.frame.size.width-widthCalData;
+ 
+ UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please decrease the font size or delete some text" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:Nil, nil];
+ _m_TextLabel.frame=CGRectMake(_m_TextLabel.frame.origin.x+textViewwidth,_GifImagePreview.frame.origin.y, _m_TextLabel.frame.size.width,_GifImagePreview.frame.size.height);
+ isTure=TRUE;
+ [alert show];
+ [alert release];
+ }
+ 
+ ///////////For Width////////////
+ CGFloat widthData=_GifImagePreview.frame.size.width-_m_TextLabel.frame.origin.x;
+ CGFloat setWidth=_m_TextLabel.frame.size.width-widthData;
+ NSLog(@"Width123 %f",widthData);
+ NSLog(@"Width321 %f",widthData);
+ CGFloat width =  [textView.text sizeWithFont:textView.font].width;
+ UILabel *locationLabel=[[UILabel alloc]init];
+ locationLabel.frame = CGRectMake(textView.frame.origin.x, textView.frame.origin.y,width+20, textView.frame.size.height-1);
+ int a=_m_TextLabel.frame.origin.x-_GifImagePreview.frame.origin.x;
+ int b=locationLabel.frame.size.width+a;
+ 
+ if(b>_GifImagePreview.frame.size.width)
+ {
+ locationLabel.frame = CGRectMake(textView.frame.origin.x, textView.frame.origin.y,_GifImagePreview.frame.size.width-a-5, textView.contentSize.height-5);
+ NSLog(@"6");
+ textView.frame = locationLabel.frame;
+ 
+ }
+ 
+ //////////For Height////////////
+ CGFloat heightData=_GifImagePreview.frame.size.height-_m_TextLabel.frame.origin.y;
+ CGFloat setHeight=_m_TextLabel.frame.size.height-heightData;
+ 
+ if(_m_TextLabel.frame.size.height  > heightData)
+ {
+ NSLog(@"7");
+ [_m_TextLabel setFrame:CGRectMake(_m_TextLabel.frame.origin.x, _m_TextLabel.frame.origin.y-setHeight, _m_TextLabel.frame.size.width, _m_TextLabel.frame.size.height)];
+ }
+ /////////For Y_axis of TextView
+ 
+ if(_m_TextLabel.frame.origin.y<=_GifImagePreview.frame.origin.y && _m_TextLabel.frame.size.height<=_GifImagePreview.frame.size.height)
+ {
+ 
+ [_m_TextLabel setFrame:CGRectMake(_m_TextLabel.frame.origin.x, _GifImagePreview.frame.origin.y, _m_TextLabel.frame.size.width, _m_TextLabel.frame.size.height)];
+ }
+ 
+ if(_m_TextLabel.frame.origin.y<=_GifImagePreview.frame.origin.y && _m_TextLabel.frame.size.height>_GifImagePreview.frame.size.height)
+ {
+ [_m_TextLabel setFrame:CGRectMake(_m_TextLabel.frame.origin.x, _GifImagePreview.frame.origin.y, _m_TextLabel.frame.size.width, _GifImagePreview.frame.size.height)];
+ 
+ UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please decrease the font size or delete some text " delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:Nil, nil];
+ [alert show];
+ [alert release];
+ 
+ }
+ _m_Crossbtn.frame=CGRectMake(_m_TextLabel.frame.origin.x-6,_m_TextLabel.frame.origin.y-28, _m_Crossbtn.frame.size.width,_m_Crossbtn.frame.size.height);
+ 
+ 
+ }
+
+ 
+ */
+
+
 
 @end

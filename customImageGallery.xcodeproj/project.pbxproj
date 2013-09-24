@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BDE558F317F1D5E4006B920E /* clearButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE558F217F1D5E4006B920E /* clearButton.png */; };
 		BDE7B4BF179915A0003FC210 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE7B4BE179915A0003FC210 /* UIKit.framework */; };
 		BDE7B4C1179915A0003FC210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE7B4C0179915A0003FC210 /* Foundation.framework */; };
 		BDE7B4C3179915A0003FC210 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDE7B4C2179915A0003FC210 /* CoreGraphics.framework */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BDE558F217F1D5E4006B920E /* clearButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearButton.png; sourceTree = "<group>"; };
 		BDE7B4BB179915A0003FC210 /* customImageGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = customImageGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE7B4BE179915A0003FC210 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BDE7B4C0179915A0003FC210 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -110,6 +112,7 @@
 		BDE7B4C5179915A0003FC210 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BDE558F217F1D5E4006B920E /* clearButton.png */,
 				BDE7B4E817991826003FC210 /* check_YES_White.png */,
 				BDE7B4E21799162D003FC210 /* login-field.png */,
 				BDE7B4E017991618003FC210 /* back-btn.png */,
@@ -177,6 +180,7 @@
 			files = (
 				BDE7B4C9179915A0003FC210 /* InfoPlist.strings in Resources */,
 				BDE7B4D1179915A0003FC210 /* Default.png in Resources */,
+				BDE558F317F1D5E4006B920E /* clearButton.png in Resources */,
 				BDE7B4D3179915A0003FC210 /* Default@2x.png in Resources */,
 				BDE7B4D5179915A0003FC210 /* Default-568h@2x.png in Resources */,
 				BDE7B4DF179915C5003FC210 /* customImageLibrary.xib in Resources */,
@@ -308,6 +312,7 @@
 				BDE7B4DA179915A0003FC210 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
