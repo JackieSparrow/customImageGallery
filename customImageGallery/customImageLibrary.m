@@ -342,5 +342,38 @@ NSString *photoUrl;
  */
 
 
+/*
+ 
+ 
+ actionSheet = [[[UIActionSheet alloc]initWithTitle:@"Select State" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
+ 
+ [actionSheet showInView:self.view];
+ [actionSheet setBounds:CGRectMake(0, 0, 320, 470.0)];
+ 
+ m_picker = [[UIPickerView alloc]initWithFrame:CGRectMake(0.0, 44.0, 320.0, 250.0)];
+ m_picker.delegate = self;
+ m_picker.dataSource = self;
+ m_picker.showsSelectionIndicator = YES;
+ 
+ UIToolbar *pickerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+ pickerToolbar.barStyle = UIBarStyleBlack;
+ [pickerToolbar sizeToFit];
+ 
+ NSMutableArray *barItems = [[NSMutableArray alloc] init];
+ 
+ UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+ [barItems addObject:flexSpace];
+ 
+ UIBarButtonItem *btnBarCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(btnBarCancelClicked)];
+ [barItems addObject:btnBarCancel];
+ 
+ [pickerToolbar setItems:barItems animated:YES];
+ 
+ [actionSheet addSubview:pickerToolbar];
+ [actionSheet addSubview:m_picker];
+
+ 
+ */
+
 
 @end
